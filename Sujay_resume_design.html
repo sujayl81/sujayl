@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujay L — B2B/B2C Brand & Design Leader</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Roboto for high-contrast Swiss-style typography -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Pure high-contrast custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #000000;
+        }
+
+        /* Card and Hover Interactions - Strict Minimal Grayscale */
+        .interactive-link {
+            transition: all 0.2s ease;
+        }
+        .interactive-link:hover {
+            color: #777777;
+            text-decoration: underline;
+        }
+        
+        .action-button {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .action-button:hover {
+            background-color: #000000;
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        /* Strict Print Optimization */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                font-size: 12px !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-full-width {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            /* Clean margins for physical paper/PDF output */
+            @page {
+                size: portrait;
+                margin: 1.6cm;
+            }
+            section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-black selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- Action Bar (Sticky top bar for digital interactions) -->
+    <header class="no-print sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-black py-4 px-6 sm:px-12">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <span class="text-xs font-black tracking-widest uppercase text-black">
+                Sujay L — Portfolio Resume
+            </span>
+            <div class="flex items-center gap-4">
+                <button onclick="triggerPrint()" class="action-button border border-black text-black px-4 py-2 text-xs font-bold uppercase tracking-wider">
+                    Print / Save as PDF
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Custom Print Instruction Modal (Built-in custom fallback for sandbox environments) -->
+    <div id="print-modal" class="no-print fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden">
+        <div class="bg-white border-2 border-black max-w-md w-full p-6 space-y-6 shadow-2xl">
+            <div class="flex justify-between items-start">
+                <h3 class="text-lg font-black uppercase tracking-wider text-black">
+                    Print / PDF Instructions
+                </h3>
+                <button onclick="closePrintModal()" class="text-black hover:text-neutral-500 font-bold text-xl leading-none">&times;</button>
+            </div>
+            
+            <div class="space-y-4 text-sm text-neutral-800 leading-relaxed">
+                <p>
+                    Because this page is running inside a secure frame, automatic printing might be blocked by your browser. No problem! You can print or save perfectly by using your system hotkeys:
+                </p>
+                <div class="bg-neutral-100 p-4 font-mono text-xs space-y-2 border border-neutral-300">
+                    <p class="flex justify-between"><strong>Windows/Linux:</strong> <span>Ctrl + P</span></p>
+                    <p class="flex justify-between"><strong>macOS (Apple):</strong> <span>Cmd + P</span></p>
+                </div>
+                <div class="space-y-1.5 text-xs text-neutral-600">
+                    <p class="font-bold text-black uppercase tracking-wider mb-1">Recommended PDF Settings:</p>
+                    <p>• <strong>Margins:</strong> Set to "Default" or "None".</p>
+                    <p>• <strong>Headers/Footers:</strong> Uncheck to hide browser URLs.</p>
+                    <p>• <strong>Background graphics:</strong> Check/Enable for accurate spacing.</p>
+                </div>
+            </div>
+
+            <div class="flex gap-3 pt-2">
+                <button onclick="window.print(); closePrintModal();" class="flex-1 text-center bg-black text-white hover:bg-neutral-800 transition-colors uppercase text-xs font-bold tracking-wider py-3">
+                    Try Printer Dialog Anyway
+                </button>
+                <button onclick="closePrintModal()" class="flex-1 text-center border border-black hover:bg-neutral-100 transition-colors uppercase text-xs font-bold tracking-wider py-3">
+                    Dismiss
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Resume Container -->
+    <main class="max-w-6xl w-full mx-auto my-12 p-6 sm:p-10 lg:p-12 bg-white print-full-width print:my-0 print:p-0" id="main-container">
+        
+        <!-- Header Section (Fully stripped of image containers to prevent load errors) -->
+        <div class="border-b-[3px] border-black pb-10 mb-10 space-y-4">
+            <!-- Name matching requested "Sujay L" -->
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter uppercase text-black leading-none" id="profile-name">
+                Sujay L
+            </h1>
+            <!-- Grayscale high-contrast subtitle -->
+            <p class="text-base md:text-lg font-bold tracking-widest text-black uppercase">
+                B2B/B2C Brand & Design Leader | AI Strategy Consultant
+            </p>
+            
+            <!-- Contact Links -->
+            <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm sm:text-base text-neutral-600 font-medium" id="contact-links">
+                <span class="flex items-center gap-1.5 text-black">
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                    Bengaluru, Karnataka
+                </span>
+                <span class="flex items-center gap-1.5 text-black">
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1.3 1.3 0 01-.321.988l-1.305 1.305a12.94 12.94 0 005.454 5.454l1.305-1.305"/></svg>
+                    (91) 9886226100
+                </span>
+                <span class="flex items-center gap-1.5 text-black">
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    sujayl81@gmail.com
+                </span>
+                <a href="https://www.linkedin.com/in/sujayl81" target="_blank" class="flex items-center gap-1.5 font-bold underline hover:text-neutral-500 transition-colors text-black">
+                    <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    linkedin.com/in/sujayl81
+                </a>
+            </div>
+        </div>
+
+        <!-- Grid Layout: Sidebar and Main Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 print-full-width">
+            
+            <!-- Left Column (Span 4): Capabilities, Key Highlights, Education -->
+            <div class="lg:col-span-4 space-y-12 print-full-width">
+                
+                <!-- Core Capabilities -->
+                <section class="space-y-6">
+                    <h3 class="text-base font-black tracking-widest uppercase border-b border-black pb-2 text-black">
+                        Capabilities
+                    </h3>
+                    <div class="space-y-5 text-base leading-relaxed text-neutral-800 font-normal">
+                        <div>
+                            <h4 class="font-bold text-black uppercase mb-1 text-sm tracking-wider">Strategic Leadership</h4>
+                            <p>Brand Strategy & Architecture, Global Brand Governance, GTM & ABM Narratives, Venture Capital & Scale-Up Positioning.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-black uppercase mb-1 text-sm tracking-wider">Design & Experience</h4>
+                            <p>Creative Direction, Design Thinking Workshops, Digital Platforms, UI/UX Strategy, Service & Retail Experience Design.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-black uppercase mb-1 text-sm tracking-wider">Corporate Communications</h4>
+                            <p>Annual & Integrated Reports, ESG/CSR Sustainability Narratives, Analyst-Meet Storytelling, High-Stakes CXO Keynotes.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-black uppercase mb-1 text-sm tracking-wider">Growth & Engagement</h4>
+                            <p>Integrated Campaigns, Thought Leadership Publishing, Cross-Functional Team Leadership, Global Stakeholder Engagement.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Value Highlights -->
+                <section class="space-y-6">
+                    <h3 class="text-base font-black tracking-widest uppercase border-b border-black pb-2 text-black">
+                        Performance Metrics
+                    </h3>
+                    <ul class="space-y-5 text-base text-neutral-800 font-normal">
+                        <li class="flex gap-4">
+                            <span class="text-4xl font-black text-black leading-none shrink-0">21+</span>
+                            <p class="pt-1">Years bridging high-impact B2B technology branding with premium B2C customer journeys.</p>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-4xl font-black text-black leading-none shrink-0">14+</span>
+                            <p class="pt-1">Years leading brand transformation and high-stakes execution globally at Infosys.</p>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-4xl font-black text-black leading-none shrink-0">15+</span>
+                            <p class="pt-1">Years of consecutive award-winning corporate reports (LACP, ARC, Stevie Awards).</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Education -->
+                <section class="space-y-4">
+                    <h3 class="text-base font-black tracking-widest uppercase border-b border-black pb-2 text-black">
+                        Education
+                    </h3>
+                    <div class="text-base text-neutral-800 font-normal">
+                        <p class="font-bold text-black uppercase">Bachelor of Fine Arts (Applied Arts)</p>
+                        <p class="text-neutral-500 mt-1 mb-2 text-xs">1999 – 2004</p>
+                        <p>College of Fine Arts, Karnataka Chitrakala Parishath, Bengaluru</p>
+                    </div>
+                </section>
+
+                <!-- Certifications Quick Links -->
+                <section class="space-y-4">
+                    <h3 class="text-base font-black tracking-widest uppercase border-b border-black pb-2 text-black">
+                        Certifications
+                    </h3>
+                    <p class="text-sm text-neutral-500 font-normal">40+ premium industry credentials validated on LinkedIn.</p>
+                    <div class="space-y-3 text-base text-neutral-800 font-normal">
+                        <a href="https://www.interaction-design.org/members/sujay-l/certificate/course/fbc51da8-342b-41be-8548-84359a44aa33" target="_blank" class="block hover:text-black hover:underline transition-colors">
+                            • Design for the 21st Century (Don Norman) <span class="font-bold">↗</span>
+                        </a>
+                        <a href="https://www.interaction-design.org/members/sujay-l/certificate/course/bee47383-166e-487d-9d8e-59dc8a3d49c4" target="_blank" class="block hover:text-black hover:underline transition-colors">
+                            • Design Thinking (IDF) <span class="font-bold">↗</span>
+                        </a>
+                        <a href="https://www.interaction-design.org/members/sujay-l/certificate/course/1b14d1e3-10d3-4378-b9b7-519d5b333eaa" target="_blank" class="block hover:text-black hover:underline transition-colors">
+                            • UX Management: Strategy & Tactics <span class="font-bold">↗</span>
+                        </a>
+                        <a href="https://www.interaction-design.org/members/sujay-l/certificate/course/8c976852-d03f-4bb3-b917-7bee1d70cba1" target="_blank" class="block hover:text-black hover:underline transition-colors">
+                            • Human-Computer Interaction (HCI) <span class="font-bold">↗</span>
+                        </a>
+                        <div class="pt-3 border-t border-neutral-200 mt-2">
+                            <a href="https://www.linkedin.com/in/sujayl81/details/certifications/" target="_blank" class="font-bold text-black hover:underline uppercase tracking-wider text-xs">
+                                View validation database ↗
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                
+            </div>
+
+            <!-- Right Side Element (Span 8): Professional Journey, Work Experience, Channels -->
+            <div class="lg:col-span-8 space-y-12 print-full-width">
+                
+                <!-- Professional Summary -->
+                <section class="space-y-4">
+                    <h3 class="text-base font-black tracking-widest uppercase border-b border-black pb-2 text-black">
+                        Executive Profile
+                    </h3>
+                    <p class="text-neutral-800 text-lg leading-relaxed font-normal">
+                        A visionary Global Brand Leader and Design Thinker with over 21 years of cross-functional experience blending design, marketing, corporate communications, and AI strategy. A rare hybrid profile with a proven track record of scaling reputation and brand equity across both complex B2B ecosystems (IT services, technology) and high-growth B2C sectors (hospitality, retail, healthcare, luxury).
+                    </p>
+                    <p class="text-neutral-800 text-lg leading-relaxed font-normal">
+                        Expert at translating high-stakes business goals into differentiated, design-led brand experiences across customers, partners, and employees. Forward-thinking strategist actively integrating generative AI frameworks and cutting-edge digital platforms to build future-ready creative organizations, mentor designers, and scale stakeholder trust.
+                    </p>
+                </section>
+
+                <!-- Professional Experience -->
+                <section class="space-y-8">
+                    <h3 class="text-base font-black tracking-widest uppercase border-b border-black pb-2 text-black">
+                        Professional Journey
+                    </h3>
+                    
+                    <div class="space-y-10">
+                        
+                        <!-- Experience Item 1 -->
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap justify-between items-baseline gap-2">
+                                <div>
+                                    <h4 class="font-black text-black text-lg uppercase">Senior Principal – Communication Design</h4>
+                                    <p class="text-sm font-bold text-neutral-500 uppercase">INFOSYS LIMITED, Bengaluru</p>
+                                </div>
+                                <span class="text-xs font-black uppercase tracking-widest text-black">Jun 2013 – Present</span>
+                            </div>
+                            <ul class="space-y-2 text-base text-neutral-800 font-normal list-disc list-outside pl-4 leading-relaxed">
+                                <li>Lead global integrated brand and corporate communication initiatives to shape institutional perception across clients, Fortune 500 investors, enterprise partners, and a global workforce.</li>
+                                <li>Direct editorial strategy, design systems, and compliance governance for world-class Integrated Annual, ESG, and CSR Reports.</li>
+                                <li>Own end-to-end brand identity and experiential design for flagship global corporate events, including AGM, Confluence, Analyst Meets, and the Strategic Meet, aligning executive keynotes with unified digital assets.</li>
+                                <li>Partner with enterprise marketing and sales leadership to prototype account-based marketing (ABM) stories, service design narratives, and future business scenarios.</li>
+                                <li>Build and scale next-generation digital publishing infrastructures, including the Infosys Knowledge Institute, Sustainability Hub, and collaborative intranets.</li>
+                                <li>Mentor a high-performing, cross-functional team of multi-disciplinary designers, strategists, copywriters, and technologists, instituting creative excellence guardrails.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Experience Item 2 -->
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap justify-between items-baseline gap-2">
+                                <div>
+                                    <h4 class="font-black text-black text-lg uppercase">Associate Manager – Branding & Communications</h4>
+                                    <p class="text-sm font-bold text-neutral-500 uppercase">GMR GROUP, Bengaluru and Delhi</p>
+                                </div>
+                                <span class="text-xs font-black uppercase tracking-widest text-black">2009 – 2013</span>
+                            </div>
+                            <ul class="space-y-2 text-base text-neutral-800 font-normal list-disc list-outside pl-4 leading-relaxed">
+                                <li>Established robust corporate, HR, and governance-driven communication architectures across GMR Group and its underlying infrastructure subsidiaries.</li>
+                                <li>Managed large-scale brand identity rollouts, employee communication programs, annual publications, leadership presentations, and stakeholder alignment.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Experience Item 3 -->
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap justify-between items-baseline gap-2">
+                                <div>
+                                    <h4 class="font-black text-black text-lg uppercase">Brand Designer</h4>
+                                    <p class="text-sm font-bold text-neutral-500 uppercase">IDIOM DESIGN & CONSULTING AND OTHERS, Bengaluru</p>
+                                </div>
+                                <span class="text-xs font-black uppercase tracking-widest text-black">2004 – 2009</span>
+                            </div>
+                            <ul class="space-y-2 text-base text-neutral-800 font-normal list-disc list-outside pl-4 leading-relaxed">
+                                <li>Engineered brand strategy, packaging, visual storytelling, and store experiences across diverse consumer segments, including retail, hospitality, FMCG, lifestyle, and education.</li>
+                                <li>Translated consumer insights into tangible touchpoints that maximized brand equity and elevated long-term customer engagement.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Digital Platform Spotlight -->
+                <section class="border border-black p-6 bg-neutral-50" id="spotlight-box">
+                    <h3 class="text-base font-black tracking-widest uppercase mb-3 text-black flex items-center gap-2">
+                        <svg class="h-5 w-5 text-black" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.163c-.272-1.016-1.07-1.815-2.085-2.086C19.578 3.545 12 3.545 12 3.545s-7.578 0-9.413.532c-1.016.271-1.815 1.07-2.086 2.086C0 7.998 0 12 0 12s0 4.002.501 5.837c.271 1.016 1.07 1.815 2.086 2.086 1.835.532 9.413.532 9.413.532s7.578 0 9.413-.532c1.016-.271 1.815-1.07 2.086-2.086C24 16.002 24 12 24 12s0-4.002-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        Initiative Spotlight: Better India By Design
+                    </h3>
+                    <p class="text-base text-neutral-800 font-normal leading-relaxed mb-4">
+                        As the founder and creator of <strong>"Better India By Design"</strong>, I host and share structured, insightful content analyzing visual storytelling, strategic design-led problem solving, and building strong collaborative ecosystems. It connects global designers, makers, and innovators.
+                    </p>
+                    <a href="https://www.youtube.com/@sujayl1981" target="_blank" class="inline-block text-base font-black uppercase tracking-wider border-b-2 border-black hover:text-neutral-500 hover:border-neutral-500 transition-all py-1 text-black">
+                        Explore YouTube Channel ↗
+                    </a>
+                </section>
+
+                <!-- Portfolio & Digital Channels -->
+                <section class="space-y-6">
+                    <h3 class="text-base font-black tracking-widest uppercase border-b border-black pb-2 text-black">
+                        Portfolio & Live Deliverables
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-base text-neutral-800 font-normal">
+                        <div class="space-y-3">
+                            <h4 class="font-bold text-black uppercase border-b border-neutral-200 pb-1 text-sm tracking-wider">Corporate & Sustainability Hubs</h4>
+                            <ul class="space-y-2">
+                                <li>
+                                    <a href="https://www.infosys.com/investors/reports-filings/annual-report/annual-reports/ar-2024-25.html" target="_blank" class="hover:text-neutral-500 underline decoration-neutral-300">
+                                        • Infosys Annual & Integrated Reports
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.infosys.com/iki.html" target="_blank" class="hover:text-neutral-500 underline decoration-neutral-300">
+                                        • Infosys Knowledge Institute (IKI)
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.infosys.com/about/esg.html" target="_blank" class="hover:text-neutral-500 underline decoration-neutral-300">
+                                        • Infosys Sustainability & ESG Vision
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.infosys.com/about/esg/environmental/biodiversity/bioconserve-summit-2025.html" target="_blank" class="hover:text-neutral-500 underline decoration-neutral-300">
+                                        • BioConserve Summit branding
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-3">
+                            <h4 class="font-bold text-black uppercase border-b border-neutral-200 pb-1 text-sm tracking-wider">Foundations & Subsidiaries</h4>
+                            <ul class="space-y-2">
+                                <li>
+                                    <a href="https://www.infosysprize.org/about-isf.html" target="_blank" class="hover:text-neutral-500 underline decoration-neutral-300">
+                                        • Infosys Science Foundation & Prize
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.infosys.org/infosys-foundation/aarohan-social-innovation-awards.html" target="_blank" class="hover:text-neutral-500 underline decoration-neutral-300">
+                                        • Aarohan Social Innovation Awards
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.edgeverve.com/" target="_blank" class="hover:text-neutral-500 underline decoration-neutral-300">
+                                        • EdgeVerve Product Subsidiary
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-3 md:col-span-2 mt-2">
+                            <h4 class="font-bold text-black uppercase border-b border-neutral-200 pb-1 text-sm tracking-wider">Consumer & Infrastructure Branding (B2C & B2B)</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 pt-1">
+                                <a href="https://www.ctrls.com/" target="_blank" class="hover:text-neutral-500 underline decoration-neutral-300">• CtrlS Data Centers</a>
+                                <a href="https://www.stempeutics.com/" target="_blank" class="hover:text-neutral-500 underline decoration-neutral-300">• Stempeutics Biotech</a>
+                                <a href="https://abaran.com/" target="_blank" class="hover:text-neutral-500 underline decoration-neutral-300">• Abaran Luxury Retail</a>
+                                <a href="https://www.gmrgroup.in/" target="_blank" class="hover:text-neutral-500 underline decoration-neutral-300">• GMR Group Corporate</a>
+                                <a href="https://www.help100.co.in/" target="_blank" class="hover:text-neutral-500 underline decoration-neutral-300">• Help100 Social Impact</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Value Creation Intent -->
+                <section class="no-print space-y-4">
+                    <h3 class="text-base font-black tracking-widest uppercase border-b border-black pb-2 text-black">
+                        Executive Vision
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-base text-neutral-800 font-normal">
+                        <div class="flex items-start gap-3">
+                            <span class="text-black font-black text-lg">■</span>
+                            <p class="pt-0.5"><strong>Strategic Cohesion:</strong> Establish deep-rooted design frameworks bridging GTM with product & partner strategies.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-black font-black text-lg">■</span>
+                            <p class="pt-0.5"><strong>Business-led Design:</strong> Map design-thinking processes directly to core pipeline metrics and user conversion.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-black font-black text-lg">■</span>
+                            <p class="pt-0.5"><strong>Enterprise Governance:</strong> Apply high-velocity governance frameworks ensuring premium brand metrics globally.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-black font-black text-lg">■</span>
+                            <p class="pt-0.5"><strong>Future Readiness:</strong> Integrate AI acceleration, ensuring global-scale capability in creative production workflows.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+    </main>
+
+    <!-- Footer Information -->
+    <footer class="text-center py-12 text-xs tracking-widest uppercase text-neutral-500 no-print border-t border-neutral-100" id="footer">
+        <p>© 2026 Sujay L. Optimized for screen clarity and monochrome executive prints.</p>
+    </footer>
+
+    <!-- Interactive JS Functionality -->
+    <script>
+        function triggerPrint() {
+            // Display instructions overlay immediately as fallback
+            document.getElementById('print-modal').classList.remove('hidden');
+            
+            // Attempt programmatic browser print
+            try {
+                window.print();
+            } catch (e) {
+                console.warn("Direct print call caught: browser security block active.");
+            }
+        }
+
+        function closePrintModal() {
+            document.getElementById('print-modal').classList.add('hidden');
+        }
+
+        // Close modal when clicking outside the box
+        window.onclick = function(event) {
+            const modal = document.getElementById('print-modal');
+            if (event.target == modal) {
+                modal.classList.add('hidden');
+            }
+        }
+    </script>
+
+</body>
+</html>
